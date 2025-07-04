@@ -22,12 +22,12 @@ The app allows users to view real-time weather information for any city or their
 ---
 
 ## 🗂️ Project Structure
-
+```
 ├── index.html # App layout and structure
 ├── styles.css # Styles, responsiveness, and animations
 ├── script.js # API integration, logic, and UI updates
 └── fallback-icon.png # Default icon if weather icon fails to load
-
+```
 ---
 
 ## ⚙️ Technologies Used
