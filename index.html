@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Enter city name" aria-label="City name">
+            <button id="search-btn">Search</button>
+            <button id="location-btn">Use My Location</button>
+        </div>
+        <div id="error-message" class="error-message"></div>
+        <div id="weather-container" class="weather-container">
+            <!-- Skeleton Loading -->
+            <div class="skeleton">
+                <div class="skeleton-city"></div>
+                <div class="skeleton-icon"></div>
+                <div class="skeleton-temp"></div>
+                <div class="skeleton-description"></div>
+                <div class="skeleton-details"></div>
+            </div>
+            <!-- Weather Data -->
+            <div id="weather-data" class="weather-data hidden">
+                <h2 id="city-name"></h2>
+                <div class="weather-icon">
+                    <img id="weather-icon" src="" alt="Weather icon" onerror="this.src='fallback-icon.png';">
+                </div>
+                <p id="temperature"></p>
+                <p id="description"></p>
+                <div class="weather-details">
+                    <p id="humidity"></p>
+                    <p id="wind-speed"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

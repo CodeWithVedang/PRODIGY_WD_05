@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: gradientShift 15s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(0);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.search-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+#city-input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+#city-input:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+    transform: scale(1.02);
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #f97316;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #ea580c;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.6);
+}
+
+.error-message {
+    color: #f87171;
+    margin-bottom: 20px;
+    display: none;
+    font-size: 1rem;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.weather-container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.weather-data {
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.weather-data.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    display: none;
+}
+
+.weather-icon img {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+    display: block; /* Ensure image is visible */
+    animation: bounceIn 0.8s ease;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    animation: slideIn 0.6s ease;
+}
+
+p {
+    font-size: 1.3rem;
+    margin: 8px 0;
+    animation: slideIn 0.7s ease;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    animation: slideIn 0.8s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Skeleton Loading */
+.skeleton {
+    display: none;
+}
+
+.skeleton.active {
+    display: block;
+}
+
+.skeleton-city, .skeleton-icon, .skeleton-temp, .skeleton-description, .skeleton-details {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.2) 75%);
+    background-size: 200% 100%;
+    border-radius: 8px;
+    margin: 12px auto;
+    animation: shimmer 2s infinite;
+}
+
+.skeleton-city { height: 35px; width: 60%; }
+.skeleton-icon { height: 80px; width: 80px; }
+.skeleton-temp { height: 45px; width: 40%; }
+.skeleton-description { height: 25px; width: 50%; }
+.skeleton-details { height: 25px; width: 80%; }
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Weather-based Backgrounds */
+body.sunny { background: linear-gradient(135deg, #facc15, #fb923c); }
+body.clouds { background: linear-gradient(135deg, #9ca3af, #4b5563); }
+body.rain { background: linear-gradient(135deg, #0284c7, #1e3a8a); }
+body.clear { background: linear-gradient(135deg, #22d3ee, #0ea5e9); }
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    #city-input, button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 12px;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .weather-icon img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .skeleton-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
