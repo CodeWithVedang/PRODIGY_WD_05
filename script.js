@@ -1,4 +1,5 @@
-const apiBaseUrl = "/api/weather"; // Point to Vercel serverless function
+const apiKey = "936c803f59ff3a1f0bd0f98399cf9f53"; // Replace with your OpenWeatherMap API key
+const apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather";
 
 const cityInput = document.getElementById("city-input");
 const searchBtn = document.getElementById("search-btn");
@@ -42,14 +43,11 @@ function updateBackground(weatherMain) {
 async function fetchWeatherByCity(city) {
     showSkeleton();
     try {
-        const response = await fetch(`${apiBaseUrl}?city=${encodeURIComponent(city)}`);
+        const response = await fetch(`${apiBaseUrl}?q=${city}&appid=${apiKey}&units=metric`);
         if (!response.ok) {
             throw new Error("City not found or API error");
         }
         const data = await response.json();
-        if (data.error) {
-            throw new Error(data.error);
-        }
         console.log("API Response:", data); // Debug: Log response
         displayWeather(data);
     } catch (error) {
@@ -60,14 +58,11 @@ async function fetchWeatherByCity(city) {
 async function fetchWeatherByCoords(lat, lon) {
     showSkeleton();
     try {
-        const response = await fetch(`${apiBaseUrl}?lat=${lat}&lon=${lon}`);
+        const response = await fetch(`${apiBaseUrl}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
         if (!response.ok) {
             throw new Error("Unable to fetch weather data");
         }
         const data = await response.json();
-        if (data.error) {
-            throw new Error(data.error);
-        }
         console.log("API Response:", data); // Debug: Log response
         displayWeather(data);
     } catch (error) {
