@@ -71,9 +71,7 @@ The app allows users to view real-time weather information for any city or their
 ---
 
 ## 🚀 Live Demo
-
---Link goes here once deployed--
-
+- [Visit Website](https://weather-app-prodigy-wd-05.vercel.app/)  
 ---
 
 ## 🧑‍💻 Author
